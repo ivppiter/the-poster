@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js" lang="en" xmlns:ng="http://angularjs.org" ng-app="app">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="theme.css">
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="#">
+                <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                The Poster
+              </a>
+            </div>
+          </div>
+        </nav>
+        <div class="container" ng-controller="PostController">
+            <div class="panel panel-default">
+              <div class="panel-heading">The Posts</div>
+              
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th ng-click="updateSort('title')">
+                            <span>Title </span>
+                            <span class="glyphicon glyphicon-arrow-up pull-right" aria-hidden="true" ng-show="orderBy=='title' && !orderDesc"></span>
+                            <span class="glyphicon glyphicon-arrow-down pull-right" aria-hidden="true" ng-show="orderBy=='title' && orderDesc"></span>
+                        </th>
+                        <th ng-click="updateSort('body')">
+                            <span>Descrpition</span>
+                            <span class="glyphicon glyphicon-arrow-up pull-right" aria-hidden="true" ng-show="orderBy=='body' && !orderDesc"></span>
+                            <span class="glyphicon glyphicon-arrow-down pull-right" aria-hidden="true" ng-show="orderBy=='body' && orderDesc"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="p in posts track by p.id">
+                        <td>{{p.title}}</td>
+                        <td>{{p.body}}</td>
+                    </tr>
+                </tbody>
+              </table>  
+            </div>
+        </div>
+
+        <script src='index.js' type="text/javascript"></script>
+    </body>
+</html>
