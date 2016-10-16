@@ -33,7 +33,7 @@ let context = {};
 
 let postService = app.factory('PostService', ['$http', ($http) => {
   return {
-    getPosts(onDataUpdate) {
+    getPosts() {
       return urlLoadPosts($http)
         .then(saveToCache);
     },
